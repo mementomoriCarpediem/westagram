@@ -14,7 +14,7 @@ export default class Feeds extends Component {
     };
   }
 
-  componentDidMount() {
+  fetchCommentData = () => {
     fetch('/data/commentData.json', {
       method: 'GET',
     })
@@ -24,7 +24,9 @@ export default class Feeds extends Component {
           comments: data,
         });
       });
+  };
 
+  fetchFeedData = () => {
     fetch('/data/feedsData.json', {
       method: 'GET',
     })
@@ -34,6 +36,11 @@ export default class Feeds extends Component {
           feeds: data,
         });
       });
+  };
+
+  componentDidMount() {
+    this.fetchCommentData();
+    this.fetchFeedData();
   }
 
   handleCommentValue = (e) => {

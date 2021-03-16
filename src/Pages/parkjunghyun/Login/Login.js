@@ -61,6 +61,8 @@ class LoginPark extends Component {
           // }
           this.props.history.push('/mainPark');
         });
+    } else {
+      console.log('Not valid id or pw');
     }
 
     // ## access token으로 로그인
